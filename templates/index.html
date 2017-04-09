@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+                    
+        <title> HAS - System UI </title>
+                    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    
+        <link rel="icon" type="image/png" href="./static/icon.png" sizes="16x16">
+                    
+		<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+		
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<script src="{{url_for('static', filename='scripts.js')}}"></script>
+
+        
+    </head>
+    
+	<body>
+        <ul>
+			<section class="buttonBoxSections">
+				<div class="buttonDiv">
+					<input type="button" id="btnL1On" value="Light 1 - ON">
+				</div>
+										
+				<div class="buttonDiv">
+					<input type="button" id="btnL1Off" value="Light 1 - OFF">
+				</div>
+            </section>
+        </ul>
+                    
+        <ul>	
+            <section class="buttonBoxSections">
+                <div class="buttonDiv">
+                    <input type="button" id="btnL2On" value="Light 2 - ON">
+                </div>
+                                    
+                <div class="buttonDiv">
+                    <input type="button" id="btnL2Off" value="Light 2 - OFF">
+                </div>
+            </section>
+        </ul>
+                    
+        <ul>
+            <section class="buttonBoxSections">
+                <div>
+                    <input type="button" id="btnOFF" value="SLEEP">
+                </div>
+				<div>
+                    <input type="button" id="btnWAKE" value="WAKE">
+                </div>
+            </section>
+                            
+        </ul>
+    </body>
+</html>
