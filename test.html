@@ -1,0 +1,195 @@
+<html>
+    <head>
+        <meta charset = "utf-8">
+                    
+        <title> HAS - System UI </title>
+                    
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                    
+        <link rel="icon" type="image/png" href="pics/icon.png" sizes="16x16">
+        <link rel="icon" type="image/png" href="pics/icon.png" sizes="32x32">
+                    
+		<link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        
+		<script>
+			$(document).ready(function(){
+				$('#btnL1On').click(function(){
+
+					$.ajax({
+						type: 'L1On',
+						url: '/ProcessL1On',
+						success: function(data){
+							alert(data);
+						}			
+					});
+				});
+			});
+				   
+			$(document).ready(function(){
+				$('#btnL1Off').click(function(){
+
+					$.ajax({
+						type: 'L1Off',
+						url: '/ProcessL1Off',
+						success: function(data){
+							alert(data);
+						}
+					});
+				});
+			});
+												
+			$(document).ready(function(){
+				$('#btnL2On').click(function(){
+
+					$.ajax({
+						type: 'L2On',
+						url: '/ProcessL2On',
+						success: function(data){
+							alert(data);
+						}
+					});
+				});
+			});
+				   
+			$(document).ready(function(){
+				$('#btnL2Off').click(function(){
+
+					$.ajax({
+						type: 'L2Off',
+						url: '/ProcessL2Off',
+						success: function(data){
+							alert(data);
+						}
+					});
+				});
+			});
+						
+			$(document).ready(function(){
+				$('#btnOFF').click(function(){
+
+					$.ajax({
+						type: 'OFF',
+						url: '/ProcessOFF',
+						success: function(data){
+							alert(data);
+						}
+					});
+				});
+			});
+			
+			$(document).ready(function(){
+				$('#autoOnBtn').click(function(){
+
+					$.ajax({
+						type: 'autoOn',
+						url: '/automationOn',
+						success: function(data){
+							alert(data);
+						}
+					});
+				});
+			});
+			
+			$(document).ready(function(){
+				$('#autoOffBtn').click(function(){
+
+					$.ajax({
+						type: 'autoOff',
+						url: '/automationOff',
+						success: function(data){
+							alert(data);
+						}
+					});
+				});
+			});
+						
+			$(document).ready(function() {
+				$("#ckLED2").change(function() {
+					var isChecked = $("#ckLED2").is(":checked") ? 1:0; 
+					$.ajax({
+						url: '/GoingOut',
+						type: '/ProcessGoingOut',
+						data: { strID:'GoingOut', strState:isChecked }
+					});
+				});
+			});
+			
+			function validate() {
+				if (document.getElementById('remember').checked) {
+					alert("Going out");
+					$.ajax({
+						type: 'goingOut',
+						url: '/ProcessGoingOut',
+						success: function(data){
+							alert(data);
+						}
+					});
+				} 
+				else {
+					alert("Welcome back :-)");
+					$.ajax({
+						type: 'back',
+						url: '/ProcessBack',
+						success: function(data){
+							alert(data);
+						}
+					});
+				}
+			}
+				   
+		</script>
+		
+    </head>
+	
+    <body>
+		
+		<ul>	
+			<section class="buttonBoxSections">
+				<div class="buttonDiv">
+					<input type="button" id="autoOnBtn" value="automationOn">
+				</div>
+								
+				<div class="buttonDiv">
+					<input type="button" id="autoOffBtn" value="automationOff">
+				</div>
+			</section>
+		</ul>
+				
+		<ul>
+		
+			<section class="buttonBoxSections">
+				<div class="buttonDiv">
+					<input type="button" id="btnL1On" value="ProcessL1On">
+				</div>
+				
+				<div class="buttonDiv">
+					<input type="button" id="btnL1Off" value="ProcessL1Off">
+				</div>
+			</section>
+		</ul>
+				
+		<ul>	
+			<section class="buttonBoxSections">
+				<div class="buttonDiv">
+					<input type="button" id="btnL2On" value="ProcessL2On">
+				</div>
+				
+				<div class="buttonDiv">
+					<input type="button" id="btnL2Off" value="ProcessL2Off">
+				</div>
+			</section>
+		</ul>
+				
+				
+		<ul>
+			<section class="buttonBoxSections">
+				<div>
+					<input type="button" id="btnOFF" value="SLEEP">
+				</div>
+			</section>	
+		</ul>
+			
+	</body>
+</html>
